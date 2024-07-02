@@ -1,10 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	basic_()
-	map_()
+	// basic_()
+	// map_()
+	const_()
 }
 
 func basic_() {
@@ -28,5 +31,11 @@ func map_() {
 	m1["Bob"] = 18
 	m1["Mark"] = 33
 	fmt.Println(m1)
+}
 
+func const_() {
+	const n = 1
+	x := 1 + n
+	y := 1.2 + n
+	fmt.Println(x, y)
 }
