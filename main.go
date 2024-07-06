@@ -2,16 +2,17 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 func main() {
 	// basic_()
-	// map_()
+	map_()
 	// const_()
 	// iota_()
 	// condition_()
 	// array_()
-	string_()
+	// string_()
 }
 
 func basic_() {
@@ -25,16 +26,53 @@ func basic_() {
 	fmt.Println(x)
 }
 
+// 順を持たないキーと値のペア
 func map_() {
 	// string型のキー、int型の値を持つmap定義
 	var m map[string]int
 	fmt.Println(m)
-
+	// makeを使用して変数宣言も同時に行う
 	m1 := make(map[string]int)
 	m1["John"] = 21
 	m1["Bob"] = 18
 	m1["Mark"] = 33
 	fmt.Println(m1)
+	// リテラルを使って初期値を代入する
+	m2 := map[string]int{
+		"John": 21,
+		"Bob":  33,
+		"Mark": 33,
+	}
+	fmt.Println(m2)
+	// 要素の削除
+	delete(m2, "Bob")
+	fmt.Println(m2)
+	// mapのキーと値の列挙
+	for k, v := range m2 {
+		fmt.Printf("key: %v, value: %v\n", k, v)
+	}
+	// mapは順序を保持しないのでfor-rangeが毎回異なる結果になる。
+	// ソートされてキーで列挙したい場合は先にキーを取り出し、ソート後にfor-rangeを実行する。
+	keys := []string{}
+	for k := range m1 {
+		keys = append(keys, k)
+	}
+	fmt.Println(keys)
+	sort.Strings(keys)
+	fmt.Println(keys)
+	for _, k := range keys {
+		fmt.Printf("key: %v, value: %v\n", k, m1[k])
+	}
+	// 存在しないキーは空文字になる
+	m3 := map[string]string{
+		"foo": "bar",
+	}
+	fmt.Println(m3["zoo"])
+	// 存在したかのチェック
+	v, ok := m3["foo"]
+	if ok {
+		fmt.Println(v)
+	}
 }
 
 func const_() {
@@ -139,11 +177,11 @@ func string_() {
 	rs := []rune(s1)
 	rs[4] = 'は'
 	s1 = string(rs)
-	println(s1)
+	fmt.Println(s1)
 	// ` で囲うことで複数行のテキストを扱う
 	var content = `複数行の
 	文章からなる
 	テキストです。
 	`
-	println(content)
+	fmt.Println(content)
 }
