@@ -13,7 +13,8 @@ func main() {
 	// condition_()
 	// array_()
 	// string_()
-	type_()
+	// type_()
+	struct_()
 }
 
 func basic_() {
@@ -192,4 +193,20 @@ func type_() {
 	var m MyString
 	m = "foo"
 	fmt.Println(m)
+}
+
+func struct_() {
+	type User struct {
+		Name string
+		Age  int
+	}
+	var user User
+	user.Name = "Bob"
+	user.Age = 18
+	// 変数宣言と初期値代入を同時に行う
+	// user := User{
+	// 	Name: "Bob",
+	// 	Age:  18,
+	// }
+	fmt.Println(user)
 }
