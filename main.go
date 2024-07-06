@@ -10,7 +10,8 @@ func main() {
 	// const_()
 	// iota_()
 	// condition_()
-	array_()
+	// array_()
+	string_()
 }
 
 func basic_() {
@@ -122,4 +123,27 @@ func array_() {
 	// fmt.Println(d)
 	d = d[:n+copy(a[n:], a[n+1:])]
 	fmt.Println(d)
+}
+
+func string_() {
+	// 文字列はバイト列で構成されているので、添え字を使ってアクセス
+	s := "Hello"
+	fmt.Printf("%c", s[0])
+	// 内容を書き換えるにはバイト列に変換する
+	b := []byte(s)
+	b[0] = 'h'
+	s = string(b)
+	fmt.Printf("%c", s[0])
+	// Unicodeのコードポイント列に変換する場合はrune型を使う
+	s1 := "こんにちわ世界"
+	rs := []rune(s1)
+	rs[4] = 'は'
+	s1 = string(rs)
+	println(s1)
+	// ` で囲うことで複数行のテキストを扱う
+	var content = `複数行の
+	文章からなる
+	テキストです。
+	`
+	println(content)
 }
