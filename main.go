@@ -7,12 +7,13 @@ import (
 
 func main() {
 	// basic_()
-	map_()
+	// map_()
 	// const_()
 	// iota_()
 	// condition_()
 	// array_()
 	// string_()
+	type_()
 }
 
 func basic_() {
@@ -184,4 +185,11 @@ func string_() {
 	テキストです。
 	`
 	fmt.Println(content)
+}
+
+func type_() {
+	type MyString string
+	var m MyString
+	m = "foo"
+	fmt.Println(m)
 }
