@@ -14,7 +14,10 @@ func main() {
 	// array_()
 	// string_()
 	// type_()
-	struct_()
+	// struct_()
+	v := Value(1)
+	v = v.Add(2)
+	fmt.Println(v)
 }
 
 func basic_() {
@@ -209,4 +212,10 @@ func struct_() {
 	// 	Age:  18,
 	// }
 	fmt.Println(user)
+}
+
+type Value int
+
+func (v Value) Add(n Value) Value {
+	return v + n
 }
